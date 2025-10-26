@@ -5,6 +5,10 @@ const userRoutes = new Hono();
 
 //Get all users
 userRoutes.get("/", (c) => {
+  /* The `prepare` method in the code you provided is used to create a prepared
+  statement in SQLite. Prepared statements are SQL statements that are precompiled
+  by the database engine so that they can be executed multiple times with different
+  parameters without needing to be recompiled each time. */
   const users = db.prepare("SELECT * FROM users").all();
   return c.json({
     success: true,
@@ -54,6 +58,11 @@ userRoutes.post("/", async (c) => {
   try {
     const result = db
       .prepare("INSERT INTO users (name, email) VALUES (?, ?)")
+      /* The `run` method in SQLite is used to execute an SQL query that does not return any data. It
+      is typically used for queries that modify the database, such as INSERT, UPDATE, DELETE
+      statements. When you call `run` with a query that modifies the database, it will execute the
+      query and return an object that contains information about the execution, such as the number
+      of rows affected by the query. */
       .run(name, email);
 
     return c.json(
