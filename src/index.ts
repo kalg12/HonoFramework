@@ -1,7 +1,11 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import userRoutes from "./routes/userRoutes.js"; // Import the user routes
 
 const app = new Hono();
+
+//Add the user routes to the app
+app.route("/users", userRoutes);
 
 app.get("/", (c) => {
   /* `return c.text("Hello Hono!");` is sending a response with the text "Hello Hono!" back to the
