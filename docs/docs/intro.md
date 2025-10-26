@@ -1,47 +1,81 @@
----
-sidebar_position: 1
----
+# Introducción
 
-# Tutorial Intro
+Bienvenido a la documentación de la **API de Usuarios** construida con Hono y SQLite. Esta API proporciona un sistema completo de gestión de usuarios con operaciones CRUD robustas y respuestas consistentes.
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## 🚀 ¿Qué es esta API?
 
-## Getting Started
+Esta API está diseñada para gestionar usuarios de manera eficiente y segura, proporcionando:
 
-Get started by **creating a new site**.
+- ✅ **CRUD completo** de usuarios (Crear, Leer, Actualizar, Eliminar)
+- ✅ **Validaciones robustas** de datos de entrada
+- ✅ **Manejo de errores** detallado y amigable
+- ✅ **Respuestas consistentes** con estructura estándar
+- ✅ **Códigos de estado HTTP** apropiados
+- ✅ **Base de datos SQLite** para persistencia local
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 🛠 Tecnologías utilizadas
 
-### What you'll need
+- **Framework**: [Hono](https://hono.dev/) - Ultra-rápido y ligero
+- **Base de datos**: SQLite con [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
+- **Lenguaje**: TypeScript
+- **Validación**: Campos requeridos y emails únicos
+- **Documentación**: Docusaurus
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## 📋 Características principales
 
-## Generate a new site
+### Estructura de respuestas consistente
 
-Generate a new Docusaurus site using the **classic template**.
+Todas las respuestas siguen un formato estándar:
 
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```json
+{
+  "success": true,
+  "message": "Descripción del resultado",
+  "data": {
+    /* datos específicos */
+  }
+}
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### Validaciones implementadas
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+- **Campos requeridos**: `name` y `email` son obligatorios
+- **Email único**: No se permiten emails duplicados
+- **Validación de tipos**: Verificación de tipos de datos
 
-## Start your site
+### Códigos de estado HTTP
 
-Run the development server:
+- `200` - Operación exitosa
+- `201` - Recurso creado exitosamente
+- `400` - Error de validación
+- `404` - Recurso no encontrado
+- `409` - Conflicto (email duplicado)
+- `500` - Error interno del servidor
 
-```bash
-cd my-website
-npm run start
-```
+## 🎯 Endpoints disponibles
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+| Método   | Endpoint          | Descripción                |
+| -------- | ----------------- | -------------------------- |
+| `GET`    | `/users`          | Obtener todos los usuarios |
+| `GET`    | `/users/:id`      | Obtener usuario por ID     |
+| `POST`   | `/users`          | Crear nuevo usuario        |
+| `POST`   | `/users/multiple` | Crear múltiples usuarios   |
+| `PUT`    | `/users/:id`      | Actualizar usuario         |
+| `DELETE` | `/users/:id`      | Eliminar usuario           |
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+## 🚀 Empezar
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Para comenzar a usar la API:
+
+1. **Asegúrate de que el servidor esté ejecutándose** en `http://localhost:3000`
+2. **Revisa los ejemplos** en cada endpoint
+3. **Usa los códigos de ejemplo** proporcionados
+4. **Consulta la sección de códigos de estado** para manejar errores
+
+## 📖 Navegación
+
+- **[Endpoints](/docs/endpoints/get-users)**: Documentación detallada de cada endpoint
+- **[Códigos de Estado](/docs/status-codes/success)**: Explicación de respuestas HTTP
+- **[Ejemplos](/docs/examples)**: Casos de uso comunes
+
+¡Explora la documentación y comienza a integrar la API en tu proyecto!

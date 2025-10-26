@@ -6,25 +6,250 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Custom API colors */
+  --api-success-color: #10b981;
+  --api-error-color: #ef4444;
+  --api-warning-color: #f59e0b;
+  --api-info-color: #3b82f6;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+[data-theme="dark"] {
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Custom API colors for dark mode */
+  --api-success-color: #34d399;
+  --api-error-color: #f87171;
+  --api-warning-color: #fbbf24;
+  --api-info-color: #60a5fa;
+}
+
+/* API Documentation Styles */
+.api-endpoint {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.api-endpoint:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* HTTP Method badges */
+.method-get {
+  border-left-color: #61affe;
+  background: linear-gradient(
+    135deg,
+    rgba(97, 175, 254, 0.1),
+    rgba(97, 175, 254, 0.05)
+  );
+}
+
+.method-post {
+  border-left-color: #49cc90;
+  background: linear-gradient(
+    135deg,
+    rgba(73, 204, 144, 0.1),
+    rgba(73, 204, 144, 0.05)
+  );
+}
+
+.method-put {
+  border-left-color: #fca130;
+  background: linear-gradient(
+    135deg,
+    rgba(252, 161, 48, 0.1),
+    rgba(252, 161, 48, 0.05)
+  );
+}
+
+.method-delete {
+  border-left-color: #f93e3e;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 62, 62, 0.1),
+    rgba(249, 62, 62, 0.05)
+  );
+}
+
+/* Status code indicators */
+.status-success {
+  color: var(--api-success-color);
+  font-weight: 600;
+}
+
+.status-error {
+  color: var(--api-error-color);
+  font-weight: 600;
+}
+
+.status-warning {
+  color: var(--api-warning-color);
+  font-weight: 600;
+}
+
+.status-info {
+  color: var(--api-info-color);
+  font-weight: 600;
+}
+
+/* Code blocks styling */
+.prism-code {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Response examples */
+.response-example {
+  background: var(--ifm-color-emphasis-50);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.response-example.success {
+  border-left: 4px solid var(--api-success-color);
+}
+
+.response-example.error {
+  border-left: 4px solid var(--api-error-color);
+}
+
+/* Parameter tables */
+.param-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.param-table th {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.param-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.param-table tr:nth-child(even) {
+  background: var(--ifm-color-emphasis-50);
+}
+
+/* Badge styles */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-success {
+  background: var(--api-success-color);
+  color: white;
+}
+
+.badge-error {
+  background: var(--api-error-color);
+  color: white;
+}
+
+.badge-warning {
+  background: var(--api-warning-color);
+  color: white;
+}
+
+.badge-info {
+  background: var(--api-info-color);
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-color-emphasis-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+/* Hero section customization */
+.hero__title {
+  color: white !important;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: 3rem;
+}
+
+/* Feature cards */
+.feature-card {
+  background: var(--ifm-color-emphasis-50);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .api-endpoint {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .param-table {
+    font-size: 0.875rem;
+  }
+
+  .param-table th,
+  .param-table td {
+    padding: 0.5rem;
+  }
 }

@@ -1,41 +1,154 @@
-# Website
+# 📚 Hono API Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Documentación completa de la API de usuarios construida con Hono y SQLite.
 
-## Installation
+## 🚀 Inicio rápido
 
-```bash
-yarn
-```
-
-## Local Development
+### Instalación
 
 ```bash
-yarn start
+cd docs
+npm install
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+### Desarrollo
 
 ```bash
-yarn build
+npm start
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+### Build para producción
 
 ```bash
-USE_SSH=true yarn deploy
+npm run build
 ```
 
-Not using SSH:
+### Servir build local
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+npm run serve
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## 📁 Estructura del proyecto
+
+```
+docs/
+├── docs/                    # Documentación
+│   ├── intro.md            # Introducción
+│   ├── endpoints/          # Documentación de endpoints
+│   │   ├── get-users.md
+│   │   ├── get-user-by-id.md
+│   │   ├── post-users.md
+│   │   ├── post-users-multiple.md
+│   │   ├── put-user.md
+│   │   └── delete-user.md
+│   └── status-codes/       # Códigos de estado HTTP
+│       ├── success.md
+│       └── errors.md
+├── src/
+│   ├── css/
+│   │   └── custom.css      # Estilos personalizados
+│   └── pages/
+├── static/                 # Archivos estáticos
+├── docusaurus.config.ts   # Configuración principal
+├── sidebars.ts           # Configuración del sidebar
+└── package.json
+```
+
+## 🎨 Personalización
+
+### Colores principales
+
+- **Primario**: `#ff6b35` (Naranja vibrante)
+- **Éxito**: `#10b981` (Verde)
+- **Error**: `#ef4444` (Rojo)
+- **Advertencia**: `#f59e0b` (Amarillo)
+- **Info**: `#3b82f6` (Azul)
+
+### Estilos personalizados
+
+- Endpoints con colores por método HTTP
+- Tablas de parámetros estilizadas
+- Ejemplos de respuesta con indicadores visuales
+- Responsive design para móviles
+
+## 📖 Contenido
+
+### Endpoints documentados
+
+- **GET /users** - Obtener todos los usuarios
+- **GET /users/:id** - Obtener usuario por ID
+- **POST /users** - Crear nuevo usuario
+- **POST /users/multiple** - Crear múltiples usuarios
+- **PUT /users/:id** - Actualizar usuario
+- **DELETE /users/:id** - Eliminar usuario
+
+### Códigos de estado
+
+- **200** - OK
+- **201** - Created
+- **400** - Bad Request
+- **404** - Not Found
+- **409** - Conflict
+- **500** - Internal Server Error
+
+## 🔧 Configuración
+
+### docusaurus.config.ts
+
+- Título: "Hono API Documentation"
+- Idioma por defecto: Español
+- Sidebar personalizado: `apiSidebar`
+- Colores personalizados
+- Soporte para JSON, Bash, JavaScript, TypeScript
+
+### sidebars.ts
+
+- Navegación organizada por categorías
+- Emojis para mejor UX
+- Estructura jerárquica clara
+
+## 🌐 Deploy
+
+### Vercel
+
+```bash
+npx vercel
+```
+
+### Netlify
+
+Arrastra la carpeta `build/` a Netlify
+
+### GitHub Pages
+
+Configura en Settings > Pages del repositorio
+
+## 📝 Contribuir
+
+1. Edita los archivos en `docs/docs/`
+2. Ejecuta `npm start` para ver cambios
+3. Haz commit de los cambios
+4. Push al repositorio
+
+## 🎯 Características
+
+- ✅ **Responsive**: Se adapta a móviles y desktop
+- ✅ **Dark mode**: Soporte completo para modo oscuro
+- ✅ **SEO optimizado**: Meta tags y estructura semántica
+- ✅ **Navegación intuitiva**: Sidebar organizado
+- ✅ **Ejemplos de código**: En múltiples lenguajes
+- ✅ **Búsqueda**: Funcionalidad de búsqueda integrada
+- ✅ **Accesibilidad**: Cumple estándares de accesibilidad
+
+## 📞 Soporte
+
+Para preguntas o problemas con la documentación:
+
+- Abre un issue en el repositorio
+- Contacta al desarrollador principal
+- Revisa la documentación de Docusaurus
+
+---
+
+Construido con ❤️ usando [Docusaurus](https://docusaurus.io/)
